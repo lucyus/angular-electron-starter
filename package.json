@@ -1,0 +1,79 @@
+{
+  "name": "my-project",
+  "version": "0.0.0",
+  "description": "A starter application using Electron with Angular",
+  "author": {
+    "name": "MyCompany",
+    "email": "my-company@email.com"
+  },
+  "main": "build/electron/main.js",
+  "scripts": {
+    "ng": "ng",
+    "start:angular": "ng serve",
+    "start:electron": "npm run build && electron ./build/electron/main.js",
+    "build:angular": "ng build",
+    "build:electron": "rimraf build/electron/ && tsc -p tsconfig.electron.json",
+    "build": "npm run build:angular && npm run build:electron",
+    "watch:angular": "ng build --watch",
+    "watch:electron": "npm run start:electron -- --hot-reload",
+    "watch:angular:dev": "ng build --watch --configuration development",
+    "watch": "concurrently --kill-others \"npm run watch:angular\" \"npm run watch:electron\"",
+    "package": "npm run build && electron-forge package",
+    "make": "npm run build && electron-forge make",
+    "test": "ng test",
+    "changelog": "node -e \"require('fs').writeFileSync('node_modules/conventional-changelog-conventionalcommits/src/constants.js', require('fs').readFileSync('node_modules/conventional-changelog-conventionalcommits/src/constants.js', 'utf8').replace(/\\btrue\\b/g, 'false'));\" && conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 2",
+    "release:major": "bash -c \"version=$(npm version major --no-git-tag-version) && git add package.json package-lock.json && git commit -m \\\"[WIP] release(global): release $version\\\" && git tag \\\"$version\\\" && changes=$(npx conventional-changelog -p conventionalcommits -r 2) && changes=$(echo \\\"$changes\\\" | sed '1,2d') && npm run changelog && git add CHANGELOG.md && git commit --amend -m \\\"release(global): release $version\\\" -m \\\"$changes\\\" && git tag -d \\\"$version\\\" && git tag \\\"$version\\\" && git push origin master && git push --tags\"",
+    "release:minor": "bash -c \"version=$(npm version minor --no-git-tag-version) && git add package.json package-lock.json && git commit -m \\\"[WIP] release(global): release $version\\\" && git tag \\\"$version\\\" && changes=$(npx conventional-changelog -p conventionalcommits -r 2) && changes=$(echo \\\"$changes\\\" | sed '1,2d') && npm run changelog && git add CHANGELOG.md && git commit --amend -m \\\"release(global): release $version\\\" -m \\\"$changes\\\" && git tag -d \\\"$version\\\" && git tag \\\"$version\\\" && git push origin master && git push --tags\"",
+    "release:patch": "bash -c \"version=$(npm version patch --no-git-tag-version) && git add package.json package-lock.json && git commit -m \\\"[WIP] release(global): release $version\\\" && git tag \\\"$version\\\" && changes=$(npx conventional-changelog -p conventionalcommits -r 2) && changes=$(echo \\\"$changes\\\" | sed '1,2d') && npm run changelog && git add CHANGELOG.md && git commit --amend -m \\\"release(global): release $version\\\" -m \\\"$changes\\\" && git tag -d \\\"$version\\\" && git tag \\\"$version\\\" && git push origin master && git push --tags\""
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "electron-squirrel-startup": "^1.0.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.5",
+    "@angular/cli": "^20.3.5",
+    "@angular/compiler-cli": "^20.3.0",
+    "@electron-forge/cli": "^7.10.2",
+    "@electron-forge/maker-deb": "^7.10.2",
+    "@electron-forge/maker-rpm": "^7.10.2",
+    "@electron-forge/maker-squirrel": "^7.10.2",
+    "@electron-forge/maker-zip": "^7.10.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.10.2",
+    "@electron-forge/plugin-fuses": "^7.10.2",
+    "@electron/fuses": "^1.8.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^24.7.1",
+    "concurrently": "^9.2.1",
+    "conventional-changelog-cli": "^5.0.0",
+    "electron": "^38.2.2",
+    "jasmine-core": "~5.9.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.9.2"
+  }
+}

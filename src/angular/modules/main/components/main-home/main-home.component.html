@@ -1,0 +1,7 @@
+<p>This is the Home page!</p>
+<p>You are using: {{ platformName }} {{ platformVersion }}!</p>
+<p>Browser URL: {{ browserUrl }}</p>
+@if (platformName === "Electron") {
+  <p>Electron App Path: {{ electronAppExecPath }}</p>
+}
+<p>Start building your app here!</p>

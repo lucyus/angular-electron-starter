@@ -1,0 +1,8 @@
+<p>This is the Setup page!</p>
+<p>Current Setup Stage: <strong>{{ stage() || "unknown" }}</strong></p>
+<p>Browser URL: {{ browserUrl }}</p>
+@if (isElectron) {
+  <p>Electron App Path: {{ electronAppExecPath }}</p>
+}
+<p>Use this page to handle the application setup process (install, update, uninstall)!</p>
+<p>Refer to Electron Forge Makers documentation for more information as it is platform specific.</p>
