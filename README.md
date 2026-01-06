@@ -124,8 +124,8 @@ npm run make
 + name: 'Your project name here',
 ```
 ```diff
-- appCopyright: 'Copyright © 2025 MyCompany',
-+ appCopyright: 'Copyright © 2025 Your (company) name',
+- appCopyright: 'Copyright © 2026 MyCompany',
++ appCopyright: 'Copyright © 2026 Your (company) name',
 ```
 
 ## 7. Discover

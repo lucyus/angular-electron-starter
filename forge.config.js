@@ -7,7 +7,7 @@ module.exports = {
     name: 'MyProject',
     icon: path.join(__dirname, 'build/browser/favicon.ico'),
     asar: true,
-    appCopyright: 'Copyright (C) 2025 MyCompany'
+    appCopyright: 'Copyright (C) 2026 MyCompany'
   },
   rebuildConfig: {},
   makers: [
