@@ -1,3 +1,8 @@
+## [0.1.2](https://github.com/lucyus/angular-electron-starter/compare/v0.1.1...v0.1.2) (2026-01-07)
+
+### Bug Fixes
+
+* **@electron/common:** add missing type import for 'OpenWindowOptions' ([0b3b323](https://github.com/lucyus/angular-electron-starter/commit/0b3b32376eeb5b8b52b5c87903018a05bacf8061))
 ## [0.1.1](https://github.com/lucyus/angular-electron-starter/compare/v0.1.0...v0.1.1) (2026-01-06)
 
 ### Miscellaneous Chores
